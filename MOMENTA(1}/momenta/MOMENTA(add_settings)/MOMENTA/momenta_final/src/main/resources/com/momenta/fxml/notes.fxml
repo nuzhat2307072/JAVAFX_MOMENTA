@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.NotesController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <VBox>
+                <Label styleClass="page-title" text="Brain Dump" />
+                <Label styleClass="page-subtitle" text="Capture a thought now, decide what to do with it later" />
+            </VBox>
+
+            <VBox styleClass="card" spacing="10">
+                <TextArea fx:id="newNoteArea" promptText="What's on your mind?" wrapText="true" prefRowCount="3" />
+                <Button styleClass="primary-button" text="+ Add Note" onAction="#handleAddNote" />
+            </VBox>
+
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <VBox fx:id="notesBox" spacing="10" />
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.SettingsController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="18" styleClass="content-area" maxWidth="620">
+
+                <VBox>
+                    <Label styleClass="page-title" text="Settings" />
+                    <Label styleClass="page-subtitle" text="Personal settings and backup" />
+                </VBox>
+
+                <VBox styleClass="card" spacing="12">
+                    <Label styleClass="section-title" text="ACCOUNT" />
+
+                    <Label styleClass="field-label" text="Username" />
+                    <TextField fx:id="usernameField" />
+
+                    <Label styleClass="field-label" text="Occupation" />
+                    <ComboBox fx:id="occupationBox" maxWidth="Infinity" />
+
+                    <Button styleClass="primary-button" text="Save Account Info" onAction="#handleSaveAccount" />
+                    <Label fx:id="accountMessageLabel" wrapText="true" />
+                </VBox>
+
+                <VBox styleClass="card" spacing="12">
+                    <Label styleClass="section-title" text="CHANGE PASSWORD" />
+
+                    <Label styleClass="field-label" text="Current Password" />
+                    <PasswordField fx:id="currentPasswordField" />
+
+                    <Label styleClass="field-label" text="New Password" />
+                    <PasswordField fx:id="newPasswordField" />
+
+                    <Label styleClass="field-label" text="Confirm New Password" />
+                    <PasswordField fx:id="confirmPasswordField" />
+
+                    <Button styleClass="primary-button" text="Change Password" onAction="#handleChangePassword" />
+                    <Label fx:id="passwordMessageLabel" wrapText="true" />
+                </VBox>
+
+                <VBox styleClass="card" spacing="12">
+                    <Label styleClass="section-title" text="PREFERENCES" />
+
+                    <Label styleClass="field-label" text="Default Focus Duration (minutes)" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Slider fx:id="focusDurationSlider" min="5" max="240" majorTickUnit="30" showTickLabels="true" prefWidth="300" />
+                        <Label fx:id="focusDurationValueLabel" text="25" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="Theme" />
+                    <HBox spacing="14">
+                        <RadioButton fx:id="lightThemeRadio" text="Light">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="themeGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="darkThemeRadio" text="Dark" toggleGroup="$themeGroup" />
+                        <RadioButton fx:id="autoThemeRadio" text="Auto" toggleGroup="$themeGroup" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="Accent Color" />
+                    <HBox spacing="14">
+                        <RadioButton fx:id="blueAccentRadio" text="🔵 Blue">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="accentGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="tealAccentRadio" text="🟢 Teal" toggleGroup="$accentGroup" />
+                        <RadioButton fx:id="purpleAccentRadio" text="🟣 Purple" toggleGroup="$accentGroup" />
+                        <RadioButton fx:id="orangeAccentRadio" text="🟠 Orange" toggleGroup="$accentGroup" />
+                    </HBox>
+
+                    <Button styleClass="primary-button" text="Save Preferences" onAction="#handleSavePreferences" />
+                    <Label fx:id="preferencesMessageLabel" wrapText="true" />
+                </VBox>
+
+                <VBox styleClass="card" spacing="12">
+                    <Label styleClass="section-title" text="BACKUP &amp; RESTORE" />
+                    <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" wrapText="true"
+                           text="MOMENTA automatically writes a momenta.json backup after every change. You can also trigger one manually, or restore your data from the last backup file." />
+                    <HBox spacing="10">
+                        <Button styleClass="secondary-button" text="Backup Now" onAction="#handleBackupNow" />
+                        <Button styleClass="danger-button" text="Restore from Backup" onAction="#handleRestore" />
+                    </HBox>
+                    <Label fx:id="backupMessageLabel" wrapText="true" />
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

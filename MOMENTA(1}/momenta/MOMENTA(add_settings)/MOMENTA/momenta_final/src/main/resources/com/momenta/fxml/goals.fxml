@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.GoalsController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Goals" />
+                    <Label styleClass="page-subtitle" text="Track long-term goals with milestones" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="primary-button" text="+ New Goal" onAction="#handleAddGoal" />
+            </HBox>
+
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <VBox fx:id="goalsBox" spacing="14" />
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

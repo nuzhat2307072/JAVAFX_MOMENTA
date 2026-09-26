@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.VaultController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Private Vault" />
+                    <Label styleClass="page-subtitle" text="PIN-protected notes and reference info — kept separate from your tasks" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="addEntryButton" styleClass="primary-button" text="+ New Entry" onAction="#handleAddEntry" visible="false" managed="false" />
+            </HBox>
+
+            <VBox fx:id="lockedBox" styleClass="card" spacing="12" maxWidth="380" alignment="CENTER">
+                <Label fx:id="lockedTitleLabel" styleClass="section-title" text="Vault is locked" />
+                <Label fx:id="lockedMessageLabel" style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" wrapText="true"
+                       text="Enter your PIN to unlock." />
+                <PasswordField fx:id="pinField" promptText="PIN" maxWidth="200" />
+                <Button fx:id="unlockButton" styleClass="primary-button" text="Unlock" onAction="#handleUnlock" />
+                <Label fx:id="lockedErrorLabel" styleClass="error-label" wrapText="true" />
+            </VBox>
+
+            <ScrollPane fx:id="entriesScroll" fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" visible="false" managed="false">
+                <VBox fx:id="entriesBox" spacing="10" />
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>
