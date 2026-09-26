@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.FocusController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="20" styleClass="content-area" alignment="TOP_CENTER">
+
+            <VBox alignment="CENTER" fillWidth="false">
+                <Label styleClass="page-title" text="Focus Mode" />
+                <Label styleClass="page-subtitle" text="Choose your own duration — no fixed 25-minute timer" />
+            </VBox>
+
+            <VBox styleClass="card" alignment="CENTER" spacing="18" maxWidth="480">
+                <Label fx:id="timerLabel" text="25:00" style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: #0F2C4C;" />
+                <ProgressBar fx:id="timerProgress" prefWidth="360" />
+
+                <VBox spacing="6" alignment="CENTER" maxWidth="360">
+                    <Label styleClass="field-label" text="Duration (minutes)" />
+                    <HBox spacing="10" alignment="CENTER">
+                        <Slider fx:id="durationSlider" min="5" max="240" value="25" majorTickUnit="30" showTickLabels="true" prefWidth="280" />
+                        <Label fx:id="durationValueLabel" text="25" />
+                    </HBox>
+                </VBox>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button fx:id="setButton" styleClass="secondary-button" text="SET" onAction="#handleSet" />
+                    <Button fx:id="startButton" styleClass="primary-button" text="START" onAction="#handleStart" />
+                    <Button fx:id="pauseButton" styleClass="secondary-button" text="PAUSE" onAction="#handlePause" />
+                    <Button fx:id="resetButton" styleClass="secondary-button" text="RESET" onAction="#handleReset" />
+                </HBox>
+                <Button styleClass="secondary-button" text="← BACK" onAction="#handleBack" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

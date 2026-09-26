@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.KanbanController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <VBox>
+                <Label styleClass="page-title" text="Kanban Board" />
+                <Label styleClass="page-subtitle" text="Drag a card to move it between To Do, In Progress and Done" />
+            </VBox>
+
+            <ScrollPane fitToHeight="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <HBox spacing="16">
+                    <VBox fx:id="todoColumn" styleClass="kanban-column" spacing="10">
+                        <Label styleClass="kanban-column-header" text="TO DO" />
+                        <VBox fx:id="todoCards" spacing="8" />
+                    </VBox>
+                    <VBox fx:id="inProgressColumn" styleClass="kanban-column" spacing="10">
+                        <Label styleClass="kanban-column-header" text="IN PROGRESS" />
+                        <VBox fx:id="inProgressCards" spacing="8" />
+                    </VBox>
+                    <VBox fx:id="doneColumn" styleClass="kanban-column" spacing="10">
+                        <Label styleClass="kanban-column-header" text="DONE" />
+                        <VBox fx:id="doneCards" spacing="8" />
+                    </VBox>
+                </HBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>
