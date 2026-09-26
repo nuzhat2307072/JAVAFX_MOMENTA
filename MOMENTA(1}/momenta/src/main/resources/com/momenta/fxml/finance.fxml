@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.FinanceController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Finance" />
+                    <Label styleClass="page-subtitle" text="Track income and expenses" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="primary-button" text="+ Add Entry" onAction="#handleAddEntry" />
+                <Button styleClass="secondary-button" text="Export Backup (JSON)" onAction="#handleExportJson" />
+            </HBox>
+
+            <HBox spacing="16">
+                <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <Label styleClass="card-title" text="INCOME" />
+                    <Label fx:id="incomeLabel" styleClass="card-value" text="৳0" style="-fx-text-fill: #22C55E;" />
+                </VBox>
+                <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <Label styleClass="card-title" text="EXPENSES" />
+                    <Label fx:id="expensesLabel" styleClass="card-value" text="৳0" style="-fx-text-fill: #EF4444;" />
+                </VBox>
+                <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <Label styleClass="card-title" text="NET BALANCE" />
+                    <Label fx:id="netLabel" styleClass="card-value-accent" text="৳0" />
+                </VBox>
+            </HBox>
+
+            <ListView fx:id="entriesList" styleClass="table-view" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </center>
+</BorderPane>

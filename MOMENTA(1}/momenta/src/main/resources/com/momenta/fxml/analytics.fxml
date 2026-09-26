@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.AnalyticsController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="18" styleClass="content-area">
+
+                <VBox>
+                    <Label styleClass="page-title" text="Productivity Analytics" />
+                    <Label styleClass="page-subtitle" text="Your completion trends and focus history" />
+                </VBox>
+
+                <HBox spacing="16">
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="COMPLETED TASKS" />
+                        <Label fx:id="completedLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="PENDING TASKS" />
+                        <Label fx:id="pendingLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="HIGH PRIORITY" />
+                        <Label fx:id="highPriorityLabel" styleClass="card-value-accent" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG PROGRESS" />
+                        <Label fx:id="avgProgressLabel" styleClass="card-value" text="0%" />
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="card" spacing="10">
+                    <Label styleClass="section-title" text="WEEKLY FOCUS MINUTES" />
+                    <BarChart fx:id="weeklyChart" prefHeight="320" legendVisible="false">
+                        <xAxis>
+                            <CategoryAxis fx:id="xAxis" label="Date" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="yAxis" label="Minutes" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
