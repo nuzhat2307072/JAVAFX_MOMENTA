@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+out/
+momenta.db
+momenta.json
+.DS_Store

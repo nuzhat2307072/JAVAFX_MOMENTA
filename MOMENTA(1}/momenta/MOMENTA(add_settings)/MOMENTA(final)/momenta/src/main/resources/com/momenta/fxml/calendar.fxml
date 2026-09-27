@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.CalendarController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Calendar" />
+                    <Label styleClass="page-subtitle" text="Plan your work and view reminders" />
+                </VBox>
+            </HBox>
+
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                <VBox styleClass="card" spacing="14" HBox.hgrow="ALWAYS" prefWidth="620">
+                    <HBox alignment="CENTER" spacing="14">
+                        <Button styleClass="secondary-button" text="◀" onAction="#handlePrevMonth" />
+                        <Label fx:id="monthLabel" styleClass="section-title" text="Month Year" />
+                        <Button styleClass="secondary-button" text="▶" onAction="#handleNextMonth" />
+                    </HBox>
+                    <GridPane fx:id="calendarGrid" hgap="6" vgap="6" alignment="CENTER" />
+                </VBox>
+
+                <VBox styleClass="card" spacing="12" prefWidth="320">
+                    <Label fx:id="selectedDateLabel" styleClass="section-title" text="Select a date" />
+                    <Button styleClass="primary-button" text="+ Add Reminder" onAction="#handleAddReminder" maxWidth="Infinity" />
+                    <VBox fx:id="remindersBox" spacing="8" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
