@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.SearchController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <VBox>
+                <Label styleClass="page-title" text="Search" />
+                <Label styleClass="page-subtitle" text="Search across tasks, reminders, goals and notes" />
+            </VBox>
+
+            <TextField fx:id="searchField" promptText="Type to search... (Ctrl+F)" />
+
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <VBox fx:id="resultsBox" spacing="10" />
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

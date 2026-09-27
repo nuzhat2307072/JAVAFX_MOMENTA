@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.TrashController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Trash" />
+                    <Label styleClass="page-subtitle" text="Deleted tasks, reminders, goals, notes, finance entries and vault items — restore or remove for good" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="emptyTrashButton" styleClass="danger-button" text="Empty Trash" onAction="#handleEmptyTrash" />
+            </HBox>
+
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                <VBox fx:id="trashBox" spacing="8" />
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

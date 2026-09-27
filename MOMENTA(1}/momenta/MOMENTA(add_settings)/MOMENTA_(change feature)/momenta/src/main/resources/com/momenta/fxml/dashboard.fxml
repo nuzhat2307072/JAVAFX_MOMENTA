@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.DashboardController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area" style="-fx-background-color: transparent;">
+            <VBox spacing="20" styleClass="content-area">
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <VBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                        <Label fx:id="greetingLabel" styleClass="page-title" text="Good Morning" />
+                        <Label fx:id="dateLabel" styleClass="page-subtitle" text="Today" />
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="streakLabel" styleClass="page-subtitle" text="" />
+                    <Button styleClass="primary-button" text="+ Quick Add Task" onAction="#handleQuickAdd" />
+                </HBox>
+
+                <Label fx:id="workloadWarningLabel" styleClass="warning-banner" wrapText="true" managed="false" visible="false" />
+
+                <Label styleClass="section-title" text="YOUR DAY" />
+                <HBox spacing="16">
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="OVERDUE" />
+                        <Label fx:id="overdueLabel" styleClass="card-value" text="0" style="-fx-text-fill: #EF4444;" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="DUE TODAY" />
+                        <Label fx:id="dueTodayLabel" styleClass="card-value" text="0" style="-fx-text-fill: #F97316;" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="COMPLETED TODAY" />
+                        <Label fx:id="completedTodayLabel" styleClass="card-value" text="0" style="-fx-text-fill: #22C55E;" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="FOCUSED TODAY" />
+                        <Label fx:id="focusedTodayLabel" styleClass="card-value-accent" text="0 min" />
+                    </VBox>
+                </HBox>
+
+                <Label styleClass="section-title" text="WHAT SHOULD I DO NOW?" />
+                <HBox spacing="16">
+                    <VBox fx:id="doNowCard" styleClass="card, card-accent-red" spacing="8" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label text="🔥 DO NOW" style="-fx-font-weight: bold; -fx-text-fill: #EF4444; -fx-font-size: 12px;" />
+                        <Label fx:id="doNowTitleLabel" text="No tasks yet" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #0F2C4C;" wrapText="true" />
+                        <Label fx:id="doNowReasonLabel" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #6B7280;" />
+                        <Button fx:id="doNowFocusButton" styleClass="primary-button" text="Start Focus" onAction="#handleStartFocus" />
+                    </VBox>
+                    <VBox fx:id="doNextCard" styleClass="card, card-accent-orange" spacing="8" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label text="⚡ DO NEXT" style="-fx-font-weight: bold; -fx-text-fill: #F97316; -fx-font-size: 12px;" />
+                        <Label fx:id="doNextTitleLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #0F2C4C;" wrapText="true" />
+                        <Label fx:id="doNextReasonLabel" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #6B7280;" />
+                    </VBox>
+                    <VBox fx:id="quickWinCard" styleClass="card, card-accent-green" spacing="8" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label text="🌱 QUICK WIN" style="-fx-font-weight: bold; -fx-text-fill: #22C55E; -fx-font-size: 12px;" />
+                        <Label fx:id="quickWinTitleLabel" text="—" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #0F2C4C;" wrapText="true" />
+                        <Label fx:id="quickWinReasonLabel" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #6B7280;" />
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="16">
+                    <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="380">
+                        <Label styleClass="section-title" text="TODAY'S SCHEDULE" />
+                        <VBox fx:id="scheduleBox" spacing="8" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="380">
+                        <Label styleClass="section-title" text="WHERE IS YOUR TIME GOING?" />
+                        <VBox fx:id="categoryBreakdownBox" spacing="8" />
+                    </VBox>
+                </HBox>
+
+                <VBox fx:id="achievementsSection" styleClass="card" spacing="10">
+                    <Label styleClass="section-title" text="ACHIEVEMENTS" />
+                    <FlowPane fx:id="achievementsBox" hgap="8" vgap="8" />
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label styleClass="section-title" text="ALL SAVED TASKS" />
+                    <ListView fx:id="savedTasksList" styleClass="table-view" prefHeight="280" />
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.TasksController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Task Management" />
+                    <Label styleClass="page-subtitle" text="Create, prioritize and track every task" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="categoryFilterBox" promptText="Category" />
+                <ComboBox fx:id="filterBox" promptText="Filter" />
+                <Button styleClass="primary-button" text="+ New Task" onAction="#handleAddTask" />
+            </HBox>
+
+            <TableView fx:id="taskTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colTitle" text="Title" prefWidth="180" />
+                    <TableColumn fx:id="colCategory" text="Category" prefWidth="140" />
+                    <TableColumn fx:id="colDeadline" text="Deadline" prefWidth="100" />
+                    <TableColumn fx:id="colPriority" text="Priority" prefWidth="80" />
+                    <TableColumn fx:id="colProgress" text="Progress" prefWidth="130" />
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="100" />
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="220" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
