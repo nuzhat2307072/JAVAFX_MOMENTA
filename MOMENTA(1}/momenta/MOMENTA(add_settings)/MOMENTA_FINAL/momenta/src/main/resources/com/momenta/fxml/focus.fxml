@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.momenta.controller.FocusController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20" styleClass="content-area">
+
+            <VBox alignment="CENTER" fillWidth="false">
+                <Label styleClass="page-title" text="Focus Mode" />
+                <Label fx:id="modeLabel" styleClass="page-subtitle" />
+            </VBox>
+
+            <VBox alignment="CENTER" maxWidth="480" spacing="18" styleClass="card">
+                <Label fx:id="timerLabel" style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: #0F2C4C;" text="25:00" />
+                <ProgressBar fx:id="timerProgress" prefWidth="360" />
+                <Label fx:id="todayTotalLabel" style="-fx-font-size: 12px; -fx-text-fill: #6B7280;" text="Today's Focus: 0 min" />
+
+                <VBox fx:id="durationBox" alignment="CENTER" maxWidth="360" spacing="6">
+                    <Label styleClass="field-label" text="Duration (minutes) — drag the slider or type a number" />
+                    <HBox alignment="CENTER" spacing="10">
+                        <Slider fx:id="durationSlider" majorTickUnit="30" max="240" min="5" prefWidth="240" showTickLabels="true" value="25" />
+                        <Spinner fx:id="durationSpinner" editable="true" prefWidth="90" />
+                    </HBox>
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="10">
+                    <Button fx:id="setButton" onAction="#handleSet" styleClass="secondary-button" text="SET" />
+                    <Button fx:id="startButton" onAction="#handleStart" styleClass="primary-button" text="START" />
+                    <Button fx:id="pauseButton" onAction="#handlePause" styleClass="secondary-button" text="PAUSE" />
+                    <Button fx:id="resetButton" onAction="#handleReset" styleClass="secondary-button" text="RESET" />
+                </HBox>
+                <Button onAction="#handleBack" styleClass="secondary-button" text="← BACK" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

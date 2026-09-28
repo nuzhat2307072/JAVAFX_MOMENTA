@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="sidebar" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.momenta.controller.SidebarController">
+
+    <Label styleClass="brand" text="MOMENTA" />
+    <Label styleClass="brand-sub" text="Personal Work OS" />
+
+    <VBox styleClass="user-box">
+        <Label fx:id="userNameLabel" styleClass="user-name" text="User" />
+        <Label fx:id="userRoleLabel" styleClass="user-role" text="Occupation" />
+    </VBox>
+
+    <Button fx:id="quickAddButton" styleClass="quick-add-button" text="＋  Quick Add  (Ctrl+K)" maxWidth="Infinity" onAction="#showQuickAdd" />
+    <Button fx:id="searchButton" styleClass="bell-button" text="🔎  Search  (Ctrl+F)" maxWidth="Infinity" onAction="#goSearch" />
+    <Button fx:id="bellButton" styleClass="bell-button" text="🔔  Notifications" maxWidth="Infinity" onAction="#showNotifications" />
+
+    <Button fx:id="btnDashboard" styleClass="nav-button" text="🏠  Dashboard" maxWidth="Infinity" onAction="#goDashboard" />
+    <Button fx:id="btnTasks" styleClass="nav-button" text="📋  Tasks" maxWidth="Infinity" onAction="#goTasks" />
+    <Button fx:id="btnKanban" styleClass="nav-button" text="🗂️  Kanban Board" maxWidth="Infinity" onAction="#goKanban" />
+    <Button fx:id="btnCalendar" styleClass="nav-button" text="📅  Calendar" maxWidth="Infinity" onAction="#goCalendar" />
+    <Button fx:id="btnFocus" styleClass="nav-button" text="⏱️  Focus Mode" maxWidth="Infinity" onAction="#goFocus" />
+    <Button fx:id="btnGoals" styleClass="nav-button" text="🎯  Goals" maxWidth="Infinity" onAction="#goGoals" />
+    <Button fx:id="btnHealth" styleClass="nav-button" text="❤️  Health" maxWidth="Infinity" onAction="#goHealth" />
+    <Button fx:id="btnLife" styleClass="nav-button" text="🌱  Life Areas" maxWidth="Infinity" onAction="#goLife" />
+    <Button fx:id="btnNotes" styleClass="nav-button" text="🧠  Brain Dump" maxWidth="Infinity" onAction="#goNotes" />
+    <Button fx:id="btnAnalytics" styleClass="nav-button" text="📈  Analytics" maxWidth="Infinity" onAction="#goAnalytics" />
+    <Button fx:id="btnFinance" styleClass="nav-button" text="💰  Finance" maxWidth="Infinity" onAction="#goFinance" />
+    <Button fx:id="btnVault" styleClass="nav-button" text="🔐  Private Vault" maxWidth="Infinity" onAction="#goVault" />
+    <Button fx:id="btnTrash" styleClass="nav-button" text="🗑️  Trash" maxWidth="Infinity" onAction="#goTrash" />
+    <Button fx:id="btnSettings" styleClass="nav-button" text="⚙️  Settings" maxWidth="Infinity" onAction="#goSettings" />
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <Button styleClass="logout-button" text="⏻  Logout" maxWidth="Infinity" onAction="#logout" />
+</VBox>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.AnalyticsController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="18" styleClass="content-area">
+
+                <VBox>
+                    <Label styleClass="page-title" text="Productivity Analytics" />
+                    <Label styleClass="page-subtitle" text="Your completion trends and focus history" />
+                </VBox>
+
+                <HBox spacing="16">
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="COMPLETED TASKS" />
+                        <Label fx:id="completedLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="PENDING TASKS" />
+                        <Label fx:id="pendingLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="HIGH PRIORITY" />
+                        <Label fx:id="highPriorityLabel" styleClass="card-value-accent" text="0" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG PROGRESS" />
+                        <Label fx:id="avgProgressLabel" styleClass="card-value" text="0%" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="OVERDUE" />
+                        <Label fx:id="overdueLabel" styleClass="card-value" text="0" style="-fx-text-fill: #EF4444;" />
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="16">
+                    <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="section-title" text="WEEKLY FOCUS MINUTES" />
+                        <BarChart fx:id="weeklyChart" prefHeight="300" legendVisible="false">
+                            <xAxis>
+                                <CategoryAxis fx:id="xAxis" label="Date" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis fx:id="yAxis" label="Minutes" />
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+
+                    <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="section-title" text="PRIORITY DISTRIBUTION" />
+                        <PieChart fx:id="priorityChart" prefHeight="300" legendVisible="true" />
+                    </VBox>
+                </HBox>
+
+                <Label styleClass="section-title" text="HEALTH (LAST 7 DAYS)" />
+                <HBox spacing="16">
+                    <VBox styleClass="card, card-accent-purple" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG SLEEP" />
+                        <Label fx:id="avgSleepAnalyticsLabel" styleClass="card-value" text="0.0 h" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-teal" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG WATER" />
+                        <Label fx:id="avgWaterAnalyticsLabel" styleClass="card-value" text="0 glasses" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-green" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="EXERCISE MINUTES" />
+                        <Label fx:id="weeklyExerciseAnalyticsLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-orange" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="ACTIVE HABITS" />
+                        <Label fx:id="activeHabitsLabel" styleClass="card-value" text="0" />
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="card" spacing="10">
+                    <Label styleClass="section-title" text="SLEEP TREND" />
+                    <LineChart fx:id="sleepChart" prefHeight="260" legendVisible="false">
+                        <xAxis>
+                            <CategoryAxis fx:id="sleepXAxis" label="Date" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="sleepYAxis" label="Hours" />
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <Label styleClass="section-title" text="LIFE AREAS OVERVIEW" />
+                <HBox fx:id="lifeAreasCountBox" spacing="16" />
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

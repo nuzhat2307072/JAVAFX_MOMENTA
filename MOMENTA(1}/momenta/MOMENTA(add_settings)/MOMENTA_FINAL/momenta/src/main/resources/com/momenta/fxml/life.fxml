@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.LifeAreasController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area" style="-fx-background-color: transparent;">
+            <VBox spacing="20" styleClass="content-area">
+
+                <VBox>
+                    <Label styleClass="page-title" text="Life Areas" />
+                    <Label styleClass="page-subtitle" text="Learning, Career, Relationships, Life &amp; Home, Travel, Hobbies and Journal" />
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-blue" text="📚 LEARNING &amp; EDUCATION" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddLearning" />
+                </HBox>
+                <VBox fx:id="learningBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-purple" text="💼 CAREER" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddCareer" />
+                </HBox>
+                <VBox fx:id="careerBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-orange" text="👥 RELATIONSHIPS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddRelationship" />
+                </HBox>
+                <VBox fx:id="relationshipBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-teal" text="🏡 LIFE &amp; HOME" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddHome" />
+                </HBox>
+                <VBox fx:id="homeBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-blue" text="✈️ TRAVEL" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddTravel" />
+                </HBox>
+                <VBox fx:id="travelBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-purple" text="🎨 HOBBIES &amp; PERSONAL PROJECTS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddHobby" />
+                </HBox>
+                <VBox fx:id="hobbyBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title-orange" text="📖 JOURNAL &amp; REFLECTION" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Add" onAction="#handleAddJournal" />
+                </HBox>
+                <VBox fx:id="journalBox" spacing="10" />
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

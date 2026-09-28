@@ -1,0 +1,392 @@
+/* MOMENTA — professional blue / teal / navy theme */
+
+* {
+    -fx-navy: #0F2C4C;
+    -fx-blue: #1C6FEB;
+    -fx-teal: #14B8A6;
+    -fx-green: #22C55E;
+    -fx-red: #EF4444;
+    -fx-light-gray: #F4F6F9;
+    -fx-mid-gray: #6B7280;
+    -fx-border-gray: #E2E5EA;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.root {
+    -fx-background-color: -fx-light-gray;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    -fx-background-color: -fx-navy;
+    -fx-pref-width: 220px;
+    -fx-padding: 20 0 20 0;
+}
+.sidebar .brand {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 4 24;
+}
+.sidebar .brand-sub {
+    -fx-text-fill: #9FB3CE;
+    -fx-font-size: 11px;
+    -fx-padding: 0 0 20 24;
+}
+.sidebar .user-box {
+    -fx-padding: 0 0 20 24;
+}
+.sidebar .user-name {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.sidebar .user-role {
+    -fx-text-fill: -fx-teal;
+    -fx-font-size: 11px;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D5DEEA;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 24;
+    -fx-pref-width: 220px;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+}
+.nav-button:hover {
+    -fx-background-color: #16385E;
+    -fx-text-fill: white;
+}
+.nav-button-active {
+    -fx-background-color: -fx-blue;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-red;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 24;
+    -fx-pref-width: 220px;
+    -fx-cursor: hand;
+}
+.logout-button:hover {
+    -fx-background-color: #3A1420;
+}
+
+/* ---------- Generic content ---------- */
+.content-area {
+    -fx-background-color: -fx-light-gray;
+    -fx-padding: 28;
+}
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+.page-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-mid-gray;
+}
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(15,44,76,0.08), 10, 0, 0, 2);
+}
+.card-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-mid-gray;
+    -fx-font-weight: bold;
+}
+.card-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+.card-value-accent {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-blue;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+
+/* ---------- Buttons ---------- */
+.primary-button {
+    -fx-background-color: -fx-blue;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+}
+.primary-button:hover {
+    -fx-background-color: #1558BE;
+}
+.secondary-button {
+    -fx-background-color: white;
+    -fx-text-fill: -fx-navy;
+    -fx-border-color: -fx-border-gray;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+.secondary-button:hover {
+    -fx-background-color: -fx-light-gray;
+}
+.danger-button {
+    -fx-background-color: white;
+    -fx-text-fill: -fx-red;
+    -fx-border-color: -fx-red;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+.danger-button:hover {
+    -fx-background-color: #FDECEC;
+}
+
+/* ---------- Inputs ---------- */
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: -fx-border-gray;
+    -fx-padding: 6;
+}
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: -fx-blue;
+}
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+.error-label {
+    -fx-text-fill: -fx-red;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Login / Register ---------- */
+.auth-root {
+    -fx-background-color: linear-gradient(to bottom right, #0F2C4C, #1C6FEB);
+}
+.auth-card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 24, 0, 0, 8);
+}
+.auth-brand {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+.auth-tagline {
+    -fx-text-fill: -fx-mid-gray;
+    -fx-font-size: 12px;
+}
+.link-text {
+    -fx-text-fill: -fx-blue;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+/* ---------- Priority badges ---------- */
+.badge {
+    -fx-background-radius: 12;
+    -fx-padding: 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.badge-p5 { -fx-background-color: -fx-red; }
+.badge-p4 { -fx-background-color: #F97316; }
+.badge-p3 { -fx-background-color: #F59E0B; }
+.badge-p2 { -fx-background-color: -fx-teal; }
+.badge-p1 { -fx-background-color: -fx-mid-gray; }
+
+.warning-banner {
+    -fx-background-color: #FFF7ED;
+    -fx-border-color: #FDBA74;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14;
+    -fx-text-fill: #9A3412;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+}
+
+/* ---------- Quick Add ---------- */
+.quick-add-button {
+    -fx-background-color: -fx-blue;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 24;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 0;
+}
+.quick-add-button:hover {
+    -fx-background-color: #1558BE;
+}
+
+/* ---------- Notification bell ---------- */
+.bell-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D5DEEA;
+    -fx-font-size: 15px;
+    -fx-padding: 6 24;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+}
+.bell-button:hover {
+    -fx-background-color: #16385E;
+}
+.bell-badge {
+    -fx-background-color: -fx-red;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 1 6;
+}
+
+/* ---------- Kanban board ---------- */
+.kanban-column {
+    -fx-background-color: #EEF1F6;
+    -fx-background-radius: 10;
+    -fx-padding: 12;
+    -fx-min-width: 300;
+    -fx-pref-width: 320;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-color: #94A3B8;
+}
+.kanban-column-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-navy;
+}
+.kanban-column-todo       { -fx-border-color: #94A3B8; }
+.kanban-column-progress   { -fx-border-color: #F97316; }
+.kanban-column-waiting    { -fx-border-color: #7C3AED; }
+.kanban-column-done       { -fx-border-color: #22C55E; }
+.kanban-column-dragover {
+    -fx-background-color: #DCEBFF;
+    -fx-border-color: -fx-blue;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.kanban-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(15,44,76,0.10), 6, 0, 0, 1);
+}
+.kanban-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(15,44,76,0.20), 10, 0, 0, 2);
+}
+.category-chip {
+    -fx-background-color: #E6F0FF;
+    -fx-text-fill: -fx-blue;
+    -fx-background-radius: 10;
+    -fx-padding: 2 8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Colorful category/tag chip palette ---------- */
+.chip-blue   { -fx-background-color: #E6F0FF; -fx-text-fill: #1C6FEB; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-teal   { -fx-background-color: #E4F9F5; -fx-text-fill: #0D9488; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-purple { -fx-background-color: #F1EBFF; -fx-text-fill: #7C3AED; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-orange { -fx-background-color: #FFF1E6; -fx-text-fill: #EA580C; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-pink   { -fx-background-color: #FEECF3; -fx-text-fill: #DB2777; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-green  { -fx-background-color: #E9F9EE; -fx-text-fill: #16A34A; -fx-background-radius: 10; -fx-padding: 2 8; -fx-font-size: 10px; -fx-font-weight: bold; }
+
+/* ---------- Achievement badges ---------- */
+.achievement-badge {
+    -fx-background-color: linear-gradient(to right, #FDE68A, #FCA5A5);
+    -fx-text-fill: #7C2D12;
+    -fx-background-radius: 14;
+    -fx-padding: 5 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Colorful card accents ---------- */
+.card-accent-red    { -fx-border-width: 0 0 0 4; -fx-border-color: #EF4444; -fx-border-radius: 10; }
+.card-accent-orange { -fx-border-width: 0 0 0 4; -fx-border-color: #F97316; -fx-border-radius: 10; }
+.card-accent-green  { -fx-border-width: 0 0 0 4; -fx-border-color: #22C55E; -fx-border-radius: 10; }
+.card-accent-teal   { -fx-border-width: 0 0 0 4; -fx-border-color: #14B8A6; -fx-border-radius: 10; }
+.card-accent-purple { -fx-border-width: 0 0 0 4; -fx-border-color: #8B5CF6; -fx-border-radius: 10; }
+
+/* ---------- Colorful section accents ---------- */
+.section-title-blue   { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1C6FEB; }
+.section-title-teal   { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #0D9488; }
+.section-title-purple { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #7C3AED; }
+.section-title-orange { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #EA580C; }
+
+/* ================================================================
+   Dark theme — toggled via the "theme-dark" style class on the
+   screen's root node (see ThemeManager). Redefines the same CSS
+   variables so every rule above automatically follows.
+   ================================================================ */
+.theme-dark {
+    -fx-navy: #E8EEF7;
+    -fx-blue: #4C9AFF;
+    -fx-teal: #2DD4BF;
+    -fx-green: #4ADE80;
+    -fx-red: #F87171;
+    -fx-light-gray: #12181F;
+    -fx-mid-gray: #9AA5B1;
+    -fx-border-gray: #2B3440;
+}
+.theme-dark.root {
+    -fx-background-color: -fx-light-gray;
+}
+.theme-dark .card,
+.theme-dark .table-view,
+.theme-dark .auth-card,
+.theme-dark .kanban-card {
+    -fx-background-color: #1B232D;
+}
+.theme-dark .kanban-column {
+    -fx-background-color: #171E27;
+}
+.theme-dark .text-field,
+.theme-dark .text-area,
+.theme-dark .combo-box,
+.theme-dark .date-picker,
+.theme-dark .list-view,
+.theme-dark .list-cell {
+    -fx-background-color: #1B232D;
+    -fx-text-fill: -fx-navy;
+}
+.theme-dark .label {
+    -fx-text-fill: -fx-navy;
+}
+.theme-dark .card-title,
+.theme-dark .page-subtitle {
+    -fx-text-fill: -fx-mid-gray;
+}
+.theme-dark .secondary-button {
+    -fx-background-color: #1B232D;
+    -fx-text-fill: -fx-navy;
+    -fx-border-color: -fx-border-gray;
+}

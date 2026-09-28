@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.momenta.controller.HealthController">
+
+    <left>
+        <fx:include fx:id="sidebar" source="sidebar.fxml" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area" style="-fx-background-color: transparent;">
+            <VBox spacing="20" styleClass="content-area">
+
+                <VBox>
+                    <Label styleClass="page-title" text="Health" />
+                    <Label styleClass="page-subtitle" text="Sleep, water, exercise, meals, mood, habits and health goals" />
+                </VBox>
+
+                <Label styleClass="section-title" text="TODAY AT A GLANCE" />
+                <HBox spacing="16">
+                    <VBox styleClass="card, card-accent-purple" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG SLEEP (7d)" />
+                        <Label fx:id="avgSleepLabel" styleClass="card-value" text="0.0 h" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-teal" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="AVG WATER (7d)" />
+                        <Label fx:id="avgWaterLabel" styleClass="card-value" text="0 glasses" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-green" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="EXERCISE (7d)" />
+                        <Label fx:id="weeklyExerciseLabel" styleClass="card-value" text="0 min" />
+                    </VBox>
+                    <VBox styleClass="card, card-accent-orange" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="MEALS TODAY" />
+                        <Label fx:id="mealsTodayLabel" styleClass="card-value" text="0 / 4" />
+                    </VBox>
+                    <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                        <Label styleClass="card-title" text="MOOD TODAY" />
+                        <Label fx:id="currentMoodLabel" styleClass="card-value" text="—" />
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="card" spacing="14">
+                    <Label styleClass="section-title" text="TODAY'S LOG" />
+
+                    <Label styleClass="field-label" text="😴 Sleep (hours)" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Spinner fx:id="sleepSpinner" editable="true" prefWidth="100" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="💧 Water (glasses, goal 8)" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button styleClass="secondary-button" text="－" onAction="#handleWaterMinus" />
+                        <Spinner fx:id="waterSpinner" editable="true" prefWidth="100" />
+                        <Button styleClass="secondary-button" text="＋" onAction="#handleWaterPlus" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="🏃 Exercise (minutes)" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Spinner fx:id="exerciseSpinner" editable="true" prefWidth="100" />
+                        <Button styleClass="secondary-button" text="+15" onAction="#handleExercise15" />
+                        <Button styleClass="secondary-button" text="+30" onAction="#handleExercise30" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="⚖️ Weight (kg) · 👣 Steps" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Spinner fx:id="weightSpinner" editable="true" prefWidth="100" />
+                        <Spinner fx:id="stepsSpinner" editable="true" prefWidth="110" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="🍽️ Meals eaten today" />
+                    <HBox spacing="16" alignment="CENTER_LEFT">
+                        <CheckBox fx:id="cbBreakfast" text="Breakfast" />
+                        <CheckBox fx:id="cbLunch" text="Lunch" />
+                        <CheckBox fx:id="cbDinner" text="Dinner" />
+                        <CheckBox fx:id="cbSnacks" text="Snacks" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="🙂 Mood" />
+                    <HBox spacing="14">
+                        <RadioButton fx:id="moodGreatRadio" text="😄 Great">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="moodGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="moodGoodRadio" text="🙂 Good" toggleGroup="$moodGroup" />
+                        <RadioButton fx:id="moodOkayRadio" text="😐 Okay" toggleGroup="$moodGroup" />
+                        <RadioButton fx:id="moodLowRadio" text="🙁 Low" toggleGroup="$moodGroup" />
+                        <RadioButton fx:id="moodBadRadio" text="😢 Bad" toggleGroup="$moodGroup" />
+                    </HBox>
+
+                    <Label styleClass="field-label" text="📝 Notes" />
+                    <TextArea fx:id="notesArea" prefRowCount="2" wrapText="true" />
+
+                    <Button styleClass="primary-button" text="Save Today's Log" onAction="#handleSaveLog" />
+                    <Label fx:id="saveMessageLabel" wrapText="true" />
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label styleClass="section-title" text="RECENT HISTORY" />
+                    <VBox fx:id="healthHistoryBox" spacing="6" />
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title" text="💊 HEALTH REMINDERS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ New Health Reminder" onAction="#handleAddHealthReminder" />
+                </HBox>
+                <VBox fx:id="healthRemindersBox" spacing="8" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title" text="🏋️ WORKOUTS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Log Workout" onAction="#handleAddWorkout" />
+                </HBox>
+                <VBox fx:id="workoutsBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title" text="🥗 NUTRITION LOG" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ Log Food" onAction="#handleAddNutrition" />
+                </HBox>
+                <VBox fx:id="nutritionBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title" text="HABITS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ New Habit" onAction="#handleAddHabit" />
+                </HBox>
+                <VBox fx:id="habitsBox" spacing="10" />
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label styleClass="section-title" text="HEALTH GOALS" HBox.hgrow="ALWAYS" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="primary-button" text="+ New Health Goal" onAction="#handleAddHealthGoal" />
+                </HBox>
+                <VBox fx:id="healthGoalsBox" spacing="14" />
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
